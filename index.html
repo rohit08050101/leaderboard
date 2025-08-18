@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TZ Esport Leaderboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Anton&family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --yellow:#f60000;
@@ -45,7 +45,7 @@ header{
   display:flex;
   justify-content:center;
   align-items:center;
-  border-radius:50%;
+  border-radius:35%;
   background:linear-gradient(180deg,var(--black),#111);
   border:6px solid var(--yellow);
   font-family:Anton,sans-serif;
@@ -54,12 +54,13 @@ header{
   animation: badgeGlow 2s infinite alternate;
 }
 @keyframes badgeGlow{
-  0%{box-shadow:0 0 10px #ff3c3c;}
+  0%{box-shadow:0 0 10px #f70505;}
   50%{box-shadow:0 0 25px #ff3c3c;}
   100%{box-shadow:0 0 10px #ff3c3c;}
 }
+/* H1 font updated to Press Start 2P */
 h1{
-  font-family:Anton,sans-serif;
+  font-family: 'Press Start 2P', cursive;
   font-size:52px;
   color:var(--yellow);
   text-shadow:0 6px 18px rgba(0,0,0,0.6);
@@ -95,9 +96,9 @@ h1{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:var(--red); /* লাল box */
+  background:var(--red);
   border:3px solid rgba(255,255,255,0.04);
-  color:#000000; /* font কালো */
+  color:#000000;
   font-weight:800;
 }
 .pill{
@@ -114,10 +115,9 @@ h1{
   overflow:hidden;
 }
 .pill.kill{
-  background:var(--red); /* Kill box লাল */
-  color:#000000; /* font কালো */
+  background:var(--red);
+  color:#000000;
 }
-
 /* Electric animation for top 3 */
 .pill.top1::after,
 .pill.top2::after,
@@ -157,16 +157,16 @@ footer{
 
 @media (max-width:820px){
   .wrap{padding:15px;}
-  h1{font-size:42px;}
+  h1{font-size:33px;}
   .table, .row{grid-template-columns:60px 1fr 120px 90px;}
-  .badge{width:60px;height:60px;font-size:28px;}
+  .badge{width:50px;height:50px;font-size:35px;}
   .rank{width:48px;height:28px;font-size:14px;}
   .pill{height:32px;padding:0 10px;font-size:14px;}
   .sub{font-size:16px;margin-top:16px;margin-bottom:16px;}
 }
 
 @media (max-width:480px){
-  h1{font-size:32px;}
+  h1{font-size:30px;}
   .table, .row{grid-template-columns:50px 1fr 80px 70px;}
   .badge{width:50px;height:50px;font-size:24px;}
   .rank{width:40px;height:24px;font-size:12px;}
@@ -179,7 +179,7 @@ footer{
 <div class="wrap">
   <header>
     <div class="badge">TZ</div>
-    <h1>ESPORTS LEADARBORD</h1>
+    <h1>      ESPORTS      </h1>
   </header>
   <div class="sub">Final Result</div>
   <div class="table">
@@ -248,7 +248,3 @@ render();
 </script>
 </body>
 </html>
-
-
-
-
