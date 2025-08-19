@@ -26,7 +26,7 @@ body{
 
 /* Intro number screen */
 #count{
-  font-size:150px; /* বড় font */
+  font-size:150px;
   color:var(--yellow);
   display:flex;
   justify-content:center;
@@ -44,6 +44,7 @@ body{
   box-shadow:0 12px 40px rgba(0,0,0,0.6);
   border:1px solid rgba(255,255,255,0.03);
   display:none;
+  overflow-x:auto;
 }
 
 header{
@@ -93,6 +94,7 @@ h1{
   gap:10px;
   padding:8px 0;
   font-weight:700;
+  min-width:400px;
 }
 .th{color:rgba(249, 251, 247, 0.9);}
 .row{
@@ -170,6 +172,18 @@ footer{
   color:rgba(255,255,255,0.6);
   font-size:13px;
 }
+
+/* ✅ Mobile responsive fix */
+@media (max-width:600px){
+  h1{font-size:28px;}
+  .badge{width:45px;height:45px;font-size:22px;}
+  .table, .row{
+    grid-template-columns:50px 1fr 60px 70px;
+    font-size:12px;
+  }
+  .rank{width:46px;height:28px;font-size:12px;}
+  .pill{font-size:12px;padding:0 8px;height:28px;}
+}
 </style>
 </head>
 <body>
@@ -198,18 +212,18 @@ footer{
 // Countdown 3 → 2 → 1
 const countDiv = document.getElementById('count');
 const wrap = document.querySelector('.wrap');
-let numbers = ["3","2","1"]; // 3 থেকে 1 countdown
+let numbers = ["3","2","1"];
 let i = 0;
 
 function showNumber(){
   if(i < numbers.length){
     countDiv.innerText = numbers[i];
     i++;
-    setTimeout(showNumber, 800); // প্রতি number 0.8s দেখাবে
+    setTimeout(showNumber, 800);
   } else {
     countDiv.style.display = 'none';
     wrap.style.display = 'grid';
-    render(); // leaderboard show
+    render();
   }
 }
 showNumber();
@@ -217,8 +231,6 @@ showNumber();
 // Leaderboard JS
 const container = document.getElementById("rows");
 let teams = [
-  {name:"N", kill:0, points:0},
-  {name:"N", kill:0, points:0},
   {name:"N", kill:0, points:0},
   {name:"N", kill:0, points:0},
   {name:"N", kill:0, points:0},
