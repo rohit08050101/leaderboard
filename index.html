@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html><!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -23,18 +23,6 @@ body{
   background:#000;
   color:var(--white);
 }
-
-/* Intro number screen */
-#count{
-  font-size:150px;
-  color:var(--yellow);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-}
-
-/* Leaderboard wrap hidden initially */
 .wrap{
   width:920px;
   max-width:95vw;
@@ -43,26 +31,21 @@ body{
   background:#111;
   box-shadow:0 12px 40px rgba(0,0,0,0.6);
   border:1px solid rgba(255,255,255,0.03);
-  display:none;
-  overflow-x:auto;
 }
-
 header{
   display:flex;
-  justify-content:center;  
   align-items:center;
-  gap:12px;                
+  gap:8px;
   flex-wrap:wrap;
   margin-bottom:12px;
 }
-
 .badge{
   width:60px;
   height:60px;
   display:flex;
   justify-content:center;
   align-items:center;
-  border-radius:42%;
+  border-radius:50%;
   background:linear-gradient(180deg,var(--black),#111);
   border:6px solid var(--yellow);
   font-family:Anton,sans-serif;
@@ -94,7 +77,6 @@ h1{
   gap:10px;
   padding:8px 0;
   font-weight:700;
-  min-width:400px;
 }
 .th{color:rgba(249, 251, 247, 0.9);}
 .row{
@@ -113,9 +95,9 @@ h1{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:var(--red);
+  background:var(--red); /* লাল box */
   border:3px solid rgba(255,255,255,0.04);
-  color:#000000;
+  color:#000000; /* font কালো */
   font-weight:800;
 }
 .pill{
@@ -132,8 +114,8 @@ h1{
   overflow:hidden;
 }
 .pill.kill{
-  background:var(--red);
-  color:#000000;
+  background:var(--red); /* Kill box লাল */
+  color:#000000; /* font কালো */
 }
 
 /* Electric animation for top 3 */
@@ -173,25 +155,27 @@ footer{
   font-size:13px;
 }
 
-/* ✅ Mobile responsive fix */
-@media (max-width:600px){
-  h1{font-size:28px;}
-  .badge{width:45px;height:45px;font-size:22px;}
-  .table, .row{
-    grid-template-columns:50px 1fr 60px 70px;
-    font-size:12px;
-  }
-  .rank{width:46px;height:28px;font-size:12px;}
-  .pill{font-size:12px;padding:0 8px;height:28px;}
+@media (max-width:820px){
+  .wrap{padding:15px;}
+  h1{font-size:42px;}
+  .table, .row{grid-template-columns:60px 1fr 120px 90px;}
+  .badge{width:53px;height:53px;font-size:28px;}
+  .rank{width:48px;height:28px;font-size:14px;}
+  .pill{height:32px;padding:0 10px;font-size:14px;}
+  .sub{font-size:16px;margin-top:16px;margin-bottom:16px;}
+}
+
+@media (max-width:480px){
+  h1{font-size:32px;}
+  .table, .row{grid-template-columns:50px 1fr 80px 70px;}
+  .badge{width:50px;height:50px;font-size:24px;}
+  .rank{width:40px;height:24px;font-size:12px;}
+  .pill{height:28px;padding:0 8px;font-size:12px;}
+  .sub{font-size:14px;margin-top:12px;margin-bottom:12px;}
 }
 </style>
 </head>
 <body>
-
-<!-- Countdown 3 → 2 → 1 -->
-<div id="count"></div>
-
-<!-- Leaderboard wrap -->
 <div class="wrap">
   <header>
     <div class="badge">TZ</div>
@@ -207,40 +191,21 @@ footer{
   <div id="rows" style="display:grid;gap:10px;"></div>
   <footer>Made by Rohit Biswas</footer>
 </div>
-
 <script>
-// Countdown 3 → 2 → 1
-const countDiv = document.getElementById('count');
-const wrap = document.querySelector('.wrap');
-let numbers = ["3","2","1"];
-let i = 0;
-
-function showNumber(){
-  if(i < numbers.length){
-    countDiv.innerText = numbers[i];
-    i++;
-    setTimeout(showNumber, 800);
-  } else {
-    countDiv.style.display = 'none';
-    wrap.style.display = 'grid';
-    render();
-  }
-}
-showNumber();
-
-// Leaderboard JS
 const container = document.getElementById("rows");
 let teams = [
-  {name:"N", kill:0, points:0},
-  {name:"N", kill:0, points:0},
-  {name:"N", kill:0, points:0},
-  {name:"N", kill:0, points:0},
-  {name:"N", kill:0, points:0},
-  {name:"N", kill:0, points:0},
-  {name:"N", kill:0, points:0},
-  {name:"N", kill:0, points:0},
-  {name:"N", kill:0, points:0},
-  {name:"N", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
+  {name:"name", kill:0, points:0},
 ];
 
 function animateCount(el, target){
@@ -279,7 +244,11 @@ function render(){
     setTimeout(()=>{ animateCount(killEl, team.kill); animateCount(pointsEl, team.points); }, i*150);
   });
 }
+render();
 </script>
-
 </body>
 </html>
+
+
+
+
